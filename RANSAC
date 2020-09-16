@@ -1,0 +1,28 @@
+RANSAC (Random Sample Concensus) algorithm
+
+# import
+from sklearn.linear_model import RANSACRegressor
+
+# instantiate the algorithm
+ransac = RANSACRegressor()
+
+# identify x-features and y-values
+X = boston_df['RM'].values.reshape(-1,1)
+y = boston_df['MEDV']
+
+# fit the model
+model_2 = ransac.fit(X,y)
+
+# set up inlier and outlier masks
+inlier_mask = ransac.inlier_mask_
+outlier_mask = np.logical_not(inlier_mask)
+
+# set up the lines to draw
+line_X = np.arange(3,10,1)
+line_y_ransac = ransac.predict(line_X.reshape(-1,1))
+
+# beta coefficient
+ransac.estimator_.coef_
+
+# y-intercept
+ransac.estimator_.intercept_
