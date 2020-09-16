@@ -1,4 +1,5 @@
 RANSAC (Random Sample Concensus) algorithm
+This algorithm is useful when running a linear regression model and you want to see where your outliers are in the data distribution.
 
 # import
 from sklearn.linear_model import RANSACRegressor
